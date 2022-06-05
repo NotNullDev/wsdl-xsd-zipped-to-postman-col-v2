@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "apiconnect-wsdl": "^1.8.31",
+    "ramda": "^0.28.0"
+  },
+  "name": "wsdlzip-to-postman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}

@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "89776765-15d9-4e62-844a-0c58b6572aa8",
+		"name": "registrationCommon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registrationCommon",
+			"item": [
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "http://test-soap.com/api/registration/registerUser"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n <soapenv:Header>\n  <!-- The Security element should be removed if WS-Security is not enabled on the SOAP target-url -->\n  <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\n   <wsse:UsernameToken>\n    <wsse:Username>string</wsse:Username>\n    <wsse:Password>string</wsse:Password>\n    <wsse:Nonce EncodingType=\"string\">string</wsse:Nonce>\n    <wsu:Created>string</wsu:Created>\n   </wsse:UsernameToken>\n   <wsu:Timestamp wsu:Id=\"string\">\n    <wsu:Created>string</wsu:Created>\n    <wsu:Expires>string</wsu:Expires>\n   </wsu:Timestamp>\n  </wsse:Security>\n </soapenv:Header>\n <soapenv:Body>\n  <registrationMessages:registerUserRequest xmlns:ct=\"http://test-soap.com/api/common/types\" xmlns:registrationMessages=\"http://test-soap.com/api/registration/messages\"><!-- mandatory -->\n   <registrationMessages:id><!-- mandatory -->string</registrationMessages:id>\n   <registrationMessages:lastName><!-- mandatory -->string</registrationMessages:lastName>\n   <registrationMessages:firstName><!-- mandatory -->string</registrationMessages:firstName>\n   <registrationMessages:dateOfBirth><!-- mandatory -->2016-04-18</registrationMessages:dateOfBirth>\n   <registrationMessages:correspondenceLanguage><!-- mandatory -->string</registrationMessages:correspondenceLanguage>\n   <registrationMessages:emailAddress><!-- mandatory -->string</registrationMessages:emailAddress>\n   <registrationMessages:lookupPermission><!-- mandatory -->string</registrationMessages:lookupPermission>\n   <!-- choice start: set one of the following elements and remove the other elements -->\n   <registrationMessages:privateAddress>\n    <ct:address><!-- mandatory -->\n     <ct:streetName><!-- mandatory -->string</ct:streetName>\n     <ct:postalCode><!-- mandatory -->string</ct:postalCode>\n     <ct:city><!-- mandatory -->string</ct:city>\n     <ct:countryCode><!-- mandatory -->string</ct:countryCode>\n    </ct:address>\n   </registrationMessages:privateAddress>\n   <registrationMessages:companyAddress>\n    <ct:address><!-- mandatory -->\n     <ct:streetName><!-- mandatory -->string</ct:streetName>\n     <ct:postalCode><!-- mandatory -->string</ct:postalCode>\n     <ct:city><!-- mandatory -->string</ct:city>\n     <ct:countryCode><!-- mandatory -->string</ct:countryCode>\n    </ct:address>\n    <ct:companyName><!-- mandatory -->string</ct:companyName>\n   </registrationMessages:companyAddress>\n   <!-- choice end -->\n  </registrationMessages:registerUserRequest>\n </soapenv:Body>\n</soapenv:Envelope>"
+						},
+						"url": "https://{{SERVER}}/api/api/v5/registration"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "registrationPortal",
+			"item": []
+		}
+	]
+}
